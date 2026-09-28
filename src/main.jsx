@@ -3,15 +3,20 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import App from "./App";
-import Root from "./components/Root";
+
+import Root from "./components/Root/Root";
+import Home from "./components/Home/Home";
+import Mobiles from "./components/Mobiles/Mobiles";
+import Laptops from "./components/Laptops/Laptops";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: Root,
+    Component: Root,
     children: [
       { index: true, Component: Home },
-      { path: "settings", Component: Settings },
+      { path: "mobiles", Component: Mobiles },
+      { path: "laptops", Component: Laptops },
     ]
   },
   {
@@ -23,16 +28,13 @@ const router = createBrowserRouter([
     element: <div>All my Blogs Here</div>
   },
   {
-
     path: "app",
     Component: App,
-
   }
-
 ]);
 
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
-  <RouterProvider router={router} />,
+  <RouterProvider router={router} />
 );
